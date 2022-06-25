@@ -103,7 +103,9 @@ node build/server.js
 
 Será exibido no terminal a mensagem:
 
-![01.png](/home/cristiano/Imagens/Pirnts/Projetos/api-sales-node/01.png)
+
+<img src="https://user-images.githubusercontent.com/68359459/175779882-c0c0fb54-4ea9-4a53-9b65-dad9f1959a39.png" alt="Console log">
+
 
 Mas o **build** só será feito no final do projeto, podendo assim remover a pasta `build`
 
@@ -128,5 +130,5 @@ npm run dev
 
 yarn dev
 ```
+<img src="https://user-images.githubusercontent.com/68359459/175779915-bb230878-247b-4641-8b05-7c649a75fe7c.png" alt="Servidor rodando">
 
-![02.png](/home/cristiano/Imagens/Pirnts/Projetos/api-sales-node/02.png)
