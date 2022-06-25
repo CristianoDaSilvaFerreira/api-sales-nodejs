@@ -343,3 +343,9 @@ mkdir -p src/shared/erros
 
 touch src/shared/errors/AppErro.ts
 ```
+
+## Configurando o TypeORM
+
+```bash
+yarn add typeorm reflect-metadata pg
+```
