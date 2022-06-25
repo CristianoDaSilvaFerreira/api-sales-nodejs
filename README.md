@@ -271,7 +271,7 @@ touch .prettierrc
 yarn add eslint-config-prettier eslint-plugin-prettier -D
 ```
 
-Ajustar o arquivo `eslintrc`
+* Ajustar o arquivo `eslintrc`
 
 ```js
 {
@@ -293,4 +293,46 @@ Ajustar o arquivo `eslintrc`
     "prettier/prettier": "error"
   }
 }
+```
+
+
+## Estrutura do projeto
+
+```bash
+mkdir -p src/config
+mkdir -p src/modules
+mkdir -p src/shared/http
+
+mv src/server.ts src/shared/http/server.ts
+
+mkdir -p src/shared/http/routes
+touch src/shared/http/routes/index.ts
+```
+
+### Configurando as importações
+
+```js
+"baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
+    "paths": {
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@modules/*": [
+        "src/modules/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ]
+    },  
+```
+
+## Instalação de bibliotecas
+
+```bash
+# Bibliotegas
+yarn add express cors express-async-errors
+
+# Tipagens
+yarn add -D @types/express @types/cors
+
 ```
