@@ -1,33 +1,26 @@
 # API Sales NodeJs
 
-<h1>Aplicação Node.js com Typescript</h1>
+## Aplicação Node.js com Typescript
 
 <p>
 Preparação da aplicação backend que será desenvolvida uma API de Vendas com Node.js, Typescript, TypeORM, Docker.
 </p>
 
+## Configurações do projeto
 
-## Iniciar a aplicação Node.js com Typescript
+### Iniciar a aplicação Node.js com Typescript
 
 * Criar o `package.json` com o comando
 
  > Nesse caso estarei usando o `yarn` como o gerenciador de pacotes
 
 ```bash
-npm init -y
-
-# ou
-
 yarn init -y
 ```
 
 * Fazer a instalação do Typescript
 
 ```bash
-npm install typescript ts-node-dev @types/node tsconfig-paths -D
-
-# ou
-
 yarn add typescript ts-node-dev @types/node tsconfig-paths -D
 ```
 
@@ -38,24 +31,6 @@ yarn add typescript ts-node-dev @types/node tsconfig-paths -D
 ```bash
 npx tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModule --lib es6 --module commonjs --allowJs true --noImplicitAny true
 ```
-
-Em resumo, os parâmetros passados são:
-
-`rootDir`: É aqui que o **TypeScript** procura nosso código.
-
-`outDir`: Onde o **TypeScript** coloca nosso código compilado.
-
-`esModuleInterop`: Se estiver usando **commonjs** como sistema de módulo (recomendado para aplicativos Node), então esse parâmetro deve ser definido como _true_.
-
-`resolveJsonModule`: Se usarmos **JSON** neste projeto, esta opção permite que o TypeScript o use.
-
-`lib`: Esta opção adiciona tipos de ambiente ao nosso projeto, permitindo-nos contar com recursos de diferentes versões do Ecmascript, bibliotecas de teste e até mesmo a API DOM do navegador. Usaremos recursos es6 da linguagem.
-
-`module`: commonjs é o sistema de módulo Node padrão.
-
-`allowJs`: Se você estiver convertendo um projeto **JavaScript** antigo em **TypeScript**, esta opção permitirá que você inclua arquivos **.js** no projeto.
-
-`noImplicitAny`: Em arquivos TypeScript, não permita que um tipo seja especificado inexplicitamente. Cada tipo precisa ter um tipo específico ou ser declarado explicitamente any.
 
 
 * Criar o arquivo `.gitignore`
@@ -95,7 +70,7 @@ touch src/server.ts
 yarn tsc
 ```
 
-### Executando o programa
+#### Executando o programa
 
 ```bash
 node build/server.js
@@ -109,7 +84,7 @@ Será exibido no terminal a mensagem:
 
 Mas o **build** só será feito no final do projeto, podendo assim remover a pasta `build`
 
-### Executar o servidor em desenvolvimento
+#### Executar o servidor em desenvolvimento
 
 Usaremos a biblioteca `ts-node-dev` para execução da aplicação em desenvolvimento.
 
@@ -124,11 +99,198 @@ Usaremos a biblioteca `ts-node-dev` para execução da aplicação em desenvolvi
 * Executar o servidor:
 
 ```bash
-npm run dev
-
-# ou
-
 yarn dev
 ```
 <img src="https://user-images.githubusercontent.com/68359459/175779915-bb230878-247b-4641-8b05-7c649a75fe7c.png" alt="Servidor rodando">
 
+### EditorConfig
+
+> O Editor Config é uma ferramenta que auxilia na padronização da configuração para vários desenvolvedores trabalhando em um mesmo projeto, mas em diferentes editores de código ou IDE's.
+
+<h2>Instalar no VSCode a extensão `EditorConfig for VS Code`.</h2>
+
+Depois de instalada, ao clicar com o botão direito sobre o explorador de arquivos do projeto vamos selecionar a opção `Generate .editorconfig`.
+
+E a execução dessa opção deve gerar um arquivo `.editorconfig` com o seguinte conteúdo:
+
+```js
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+```
+
+
+### ESLint
+
+> ESLint é um linter JavaScript que permite que você aplique um conjunto de padrões de estilo, formatação e codificação para sua base de código. Ele examina seu código e avisa quando você não está seguindo o padrão que definiu.
+
+<h2>Instalação e Configuração do ESLint</h2>
+
+```bash
+yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+
+* Na raiz do seu projeto crie um arquivo `.eslintrc` com uma configuração inicial do ESLint:
+
+```bash
+touch .eslintrc
+```
+
+```js
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ]
+}
+```
+
+
+* Criar o arquivo `.eslintignore`:
+
+```bash
+touch .eslintignore
+```
+
+
+```js
+node_modules
+dist
+build
+/*.js
+```
+
+* Adicionar um script no arquivo `package.json` para executar o lint, editado o que existe para:
+
+```js
+"scripts": {
+  "test": "echo \"Error: no test specified\" &amp;&amp; exit 1",
+  "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+  "lint": "eslint . --ext .ts"
+}
+```
+
+Esse comando faz basicamente com que o ESLint analise todos os arquivos dentro do projeto, indicando erros detectados de acordo com a configuração.
+
+Execute o script e verifique que nenhum erro deve ser retornado.
+
+```bash
+yarn lint
+```
+
+#### Adicionando regras ESLint
+
+No arquivo `.eslintrc`, podemos adicionar o atributo rules ao objeto json para definição de regras.
+
+Para cada regra podemos atribuir os seguintes valores: `"off"`, `"warn"` ou `"error"`.
+
+```js
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": { 
+    "no-console": "warn"
+  }
+}
+```
+
+A regra `no-console` irá indicar se há algum `console.log()` perdido pelo código.
+
+#### Correção automática ESLint
+
+O `ESLint` pode receber um parâmetro `--fix` para que tente corrigir automaticamente os problemas encontrados.
+
+Vamos configurar outro script com a opção `--fix`.
+
+```js
+"scripts": {
+  "test": "echo \"Error: no test specified\" &amp;&amp; exit 1",
+  "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+  "lint": "eslint . --ext .ts",
+  "lint-fix": "eslint . --ext .ts --fix"
+}
+```
+
+### Prettier
+
+> Prettier é um formatador de código opinativo e, em conjunto com o `ESLint`, forma uma parceria perfeita.
+
+* `ESLint`: define as convenções do código
+* `Prettier`: realiza a formatação automática com base nas regras `ESLint`
+
+#### Instalação do Prettier
+
+```bash
+yarn add prettier -D
+```
+
+* Criar o arquivo `.prettierrc` com a configuração básica do `Prettier`
+
+```bash
+touch .prettierrc
+```
+
+```js
+{
+  "semi": true,
+  "trailingComma": "all",
+  "singleQuote": true,
+  "printWidth": 80,
+  "arrowParens": "avoid"
+}
+```
+
+> É fundamental que a extensão `Prettier - Code Formater` esteja instalada no `VS Code`
+
+### Configurando o Prettier para trabalhar com ESLint
+
+```bash
+yarn add eslint-config-prettier eslint-plugin-prettier -D
+```
+
+Ajustar o arquivo `eslintrc`
+
+```js
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "prettier/prettier": "error"
+  }
+}
+```
