@@ -334,5 +334,12 @@ yarn add express cors express-async-errors
 
 # Tipagens
 yarn add -D @types/express @types/cors
+```
 
+## Tratamento de erros
+
+```bash
+mkdir -p src/shared/erros
+
+touch src/shared/errors/AppErro.ts
 ```
