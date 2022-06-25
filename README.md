@@ -344,8 +344,142 @@ mkdir -p src/shared/erros
 touch src/shared/errors/AppErro.ts
 ```
 
+
+# Configuração com o banco de dados
+
 ## Configurando o TypeORM
 
 ```bash
 yarn add typeorm reflect-metadata pg
 ```
+
+> Observação a biblioteca do `TypeORM` recebeu uma nova versão, para não gerar incompatibilidade com gestão de versão troca no `package.json` a versão do `TypeORM`
+```bash
+"typeorm": "^0.3x"
+# Por:
+"typeorm": "^0.2.9"
+```
+
+* Criar na raiz do projeto o arquivo `ormconfig.json`
+
+```bash
+touch ormconfig.json
+```
+
+```js
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "docker",
+  "database": "apisales"
+}
+```
+
+* Em `shared` criar uma pasta `typeorm`
+
+```bash
+mkdir -p src/shared/typeorm
+
+touch src/shared/typeorm/index.ts
+```
+
+* Criar o contêiner no Docker
+
+```bash
+docker run --name apisales -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+```
+
+
+## Configurando o Migration
+
+```src
+mkdir -p src/shared/typeorm/migrations
+
+```
+
+* Adicionar no `ormconfig` o caminho da `migration` e a `CLI`
+```bash
+{
+  "entities": ["./src/modules/**/typeorm/entities/*.ts"],
+  "migrations": [
+    "./src/shared/typeorm/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/shared/typeorm/migrations"
+  }
+}
+```
+
+* Alterar o script do `package.json`
+
+```bash
+"typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+```
+
+* Verificar se o script está funcionando
+
+```bash
+yarn typeorm
+```
+
+* Estrutura da migrations criada
+
+```bash
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+
+export class CreateProducts1656191578652 implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.createTable(
+      new Table({
+        name: 'products',
+        columns: [
+          {
+            name: 'id',
+            type: 'uuid',
+            isPrimary: true,
+            generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
+          },
+          {
+            name: 'name',
+            type: 'varchar',
+          },
+          {
+            name: 'price',
+            type: 'decimal',
+            precision: 10,
+            scale: 2,
+          },
+          {
+            name: 'quantity',
+            type: 'int',
+          },
+          {
+            name: 'created_at',
+            type: 'timestamp with time zone',
+            default: 'now()',
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp with time zone',
+            default: 'now()',
+          },
+        ],
+      }),
+    );
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable('products');
+  }
+}
+```
+
+* Rotando o migrations
+
+```bash
+yarn typeorm migration:run
+```
+
