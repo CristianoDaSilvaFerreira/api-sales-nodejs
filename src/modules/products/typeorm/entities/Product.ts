@@ -14,10 +14,10 @@ class Product {
   @Column('int')
   quantity: number;
 
-  @CreateDateColumn({ name: 'created' })
+  @CreateDateColumn()
   created_at: Date;
 
-  @UpdateDateColumn({ name: 'updated' })
+  @UpdateDateColumn()
   updated_at: Date;
 }
 
