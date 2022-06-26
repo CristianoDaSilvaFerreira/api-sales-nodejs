@@ -1,0 +1,32 @@
+import { Repository } from 'typeorm';
+import { EntityRepository } from 'typeorm';
+import User from '../entities/User';
+
+@EntityRepository(User)
+class UsersRepositry extends Repository<User> {
+  public async findByName(name: string): Promise<User | undefined> {
+    const user = await this.findOne({ where: { name: name } });
+
+    return user;
+  }
+
+  public async findById(id: string): Promise<User | undefined> {
+    const user = await this.findOne({ where: { id: id } });
+
+    return user;
+  }
+
+  public async findByUsername(username: string): Promise<User | undefined> {
+    const user = await this.findOne({ where: { username: username } });
+
+    return user;
+  }
+
+  public async findByEmail(email: string): Promise<User | undefined> {
+    const user = await this.findOne({ where: { email: email } });
+
+    return user;
+  }
+}
+
+export default UsersRepositry;
