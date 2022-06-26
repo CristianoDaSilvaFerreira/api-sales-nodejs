@@ -392,15 +392,16 @@ touch src/shared/typeorm/index.ts
 docker run --name apisales -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
+# Modulo de Produtos
 
 ## Configurando o Migration
 
 ```src
 mkdir -p src/shared/typeorm/migrations
-
 ```
 
 * Adicionar no `ormconfig` o caminho da `migration` e a `CLI`
+
 ```bash
 {
   "entities": ["./src/modules/**/typeorm/entities/*.ts"],
@@ -425,58 +426,14 @@ mkdir -p src/shared/typeorm/migrations
 yarn typeorm
 ```
 
-* Estrutura da migrations criada
+## Migrations Products
+
+* Criando a migrations products
 
 ```bash
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
-
-export class CreateProducts1656191578652 implements MigrationInterface {
-  public async up(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.createTable(
-      new Table({
-        name: 'products',
-        columns: [
-          {
-            name: 'id',
-            type: 'uuid',
-            isPrimary: true,
-            generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()',
-          },
-          {
-            name: 'name',
-            type: 'varchar',
-          },
-          {
-            name: 'price',
-            type: 'decimal',
-            precision: 10,
-            scale: 2,
-          },
-          {
-            name: 'quantity',
-            type: 'int',
-          },
-          {
-            name: 'created_at',
-            type: 'timestamp with time zone',
-            default: 'now()',
-          },
-          {
-            name: 'updated_at',
-            type: 'timestamp with time zone',
-            default: 'now()',
-          },
-        ],
-      }),
-    );
-  }
-
-  public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('products');
-  }
-}
+yarn typeorm migration:create -n CreateProducts
 ```
+
 
 * Rotando o migrations
 
@@ -540,4 +497,34 @@ touch src/modules/products/routes/product.routes.ts
 yarn add celebrate
 
 yarn add -D @types/joi
+```
+
+# Modulo de Usuário
+
+## Migrations Users
+
+* Criando a migrations users
+
+```bash
+yarn typeorm migration:create -n CreateUsers
+```
+
+## Entity Users
+
+```bash
+mkdir -p src/modules/users
+
+mkdir -p src/modules/users/typeorm
+
+mkdir -p src/modules/users/typeorm/entities
+
+touch src/modules/users/typeorm/entities/User.ts
+```
+
+## Repository User
+
+```bash
+mkdir -p src/modules/users/typeorm/repositories
+
+touch src/modules/users/typeorm/repositories/UserRepository.ts
 ```
