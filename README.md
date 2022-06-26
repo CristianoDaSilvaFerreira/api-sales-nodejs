@@ -491,3 +491,53 @@ mkdir -p src/modules/produts/typeorm/entities
 
 touch src/modules/produts/typeorm/entities/Product.ts
 ```
+
+
+## Repository
+
+### Repository Product
+ 
+```bash
+mkdir -p src/modules/produts/typeorm/repositories
+
+touch src/modules/produts/typeorm/repositories/ProductRepository.ts
+```
+
+
+### Services
+
+```bash
+mkdir -p src/modules/products/services
+
+touch src/modules/services/products/CreateProductService.ts
+
+touch src/modules/services/products/ListProductService.ts
+
+touch src/modules/services/products/ShowProductService.ts
+
+touch src/modules/services/products/UpdateProductService.ts
+```
+
+###  Controller
+
+```bash
+mkdir -p src/modules/products/controller  
+
+touch src/modules/products/controller/ProductService.ts
+```
+
+### Routes
+
+```bash
+mkdir -p src/modules/products/routes
+
+touch src/modules/products/routes/product.routes.ts
+```
+
+## Celebrate
+
+```bash
+yarn add celebrate
+
+yarn add -D @types/joi
+```
