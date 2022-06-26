@@ -60,8 +60,8 @@ export default class ProductsController {
 
     const deleteProduct = new DeleteProductService();
 
-    await deleteProduct.execute({ id });
+    const product = await deleteProduct.execute({ id });
 
-    return response.json([]);
+    return response.json(product);
   }
 }

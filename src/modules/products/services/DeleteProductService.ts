@@ -1,6 +1,7 @@
 import AppError from '@shared/errors/AppErro';
 
 import { getCustomRepository } from 'typeorm';
+import Product from '../typeorm/entities/Product';
 import { ProductRepository } from '../typeorm/repositories/ProductRepository';
 
 interface IProduct {
@@ -8,7 +9,7 @@ interface IProduct {
 }
 
 class DeleteProductService {
-  public async execute({ id }: IProduct): Promise<void> {
+  public async execute({ id }: IProduct): Promise<Product> {
     const productRepository = getCustomRepository(ProductRepository);
 
     const product = await productRepository.findOne({
@@ -20,7 +21,11 @@ class DeleteProductService {
     }
 
     await productRepository.remove(product);
+
+    return product;
   }
+
+
 }
 
 export default DeleteProductService;
