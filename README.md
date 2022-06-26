@@ -107,7 +107,7 @@ yarn dev
 
 > O Editor Config é uma ferramenta que auxilia na padronização da configuração para vários desenvolvedores trabalhando em um mesmo projeto, mas em diferentes editores de código ou IDE's.
 
-<h2>Instalar no VSCode a extensão `EditorConfig for VS Code`.</h2>
+<h2>Instalar no VSCode a extensão EditorConfig for VS Code.</h2>
 
 Depois de instalada, ao clicar com o botão direito sobre o explorador de arquivos do projeto vamos selecionar a opção `Generate .editorconfig`.
 
@@ -354,6 +354,7 @@ yarn add typeorm reflect-metadata pg
 ```
 
 > Observação a biblioteca do `TypeORM` recebeu uma nova versão, para não gerar incompatibilidade com gestão de versão troca no `package.json` a versão do `TypeORM`
+
 ```bash
 "typeorm": "^0.3x"
 # Por:
@@ -483,3 +484,10 @@ export class CreateProducts1656191578652 implements MigrationInterface {
 yarn typeorm migration:run
 ```
 
+### Criando a entidade Products
+
+```bash
+mkdir -p src/modules/produts/typeorm/entities
+
+touch src/modules/produts/typeorm/entities/Product.ts
+```
