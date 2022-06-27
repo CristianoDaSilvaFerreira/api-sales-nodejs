@@ -1,8 +1,8 @@
 import AppError from '@shared/errors/AppErro';
 import { compare } from 'bcryptjs';
 import { getCustomRepository } from 'typeorm';
-import User from '../typeorm/entities/User';
-import UsersRepositry from '../typeorm/repositories/UsersRepository';
+import User from '../../typeorm/entities/User';
+import UsersRepositry from '../../typeorm/repositories/UsersRepository';
 
 interface IUser {
   email: string;
