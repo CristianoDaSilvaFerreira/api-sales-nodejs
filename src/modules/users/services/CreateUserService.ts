@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppErro';
 import { getCustomRepository } from 'typeorm';
 import User from '../typeorm/entities/User';
-import UsersRepositry from '../typeorm/repositories/UserRepository';
+import UsersRepositry from '../typeorm/repositories/UsersRepository';
 
 interface IUser {
   name: string;

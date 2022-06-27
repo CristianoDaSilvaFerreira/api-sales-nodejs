@@ -6,13 +6,10 @@ import ShowUserService from '../services/ShowUserService';
 import UpdateUserService from '../services/UpdateUserService';
 
 export default class UsersConntroller {
-  public async indexUser(
-    request: Request,
-    response: Response,
-  ): Promise<Response> {
+  public async indexUser(request: Request, response: Response): Promise<Response> {
     const listUser = new ListUserService();
 
-    const users = listUser.execute();
+    const users = await listUser.execute();
 
     return response.json(users);
   }
@@ -20,11 +17,11 @@ export default class UsersConntroller {
   public async showUser(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
-    const showProduct = new ShowUserService();
+    const showUser = new ShowUserService();
 
-    const products = await showProduct.execute({ id });
+    const users = await showUser.execute({ id });
 
-    return response.json(products);
+    return response.json(users);
   }
 
   public async createUser(
