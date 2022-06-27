@@ -5,10 +5,6 @@ import UsersRepositry from '../typeorm/repositories/UserRepository';
 
 interface IUser {
   id: string;
-  name: string;
-  username: string;
-  email: string;
-  password: string;
 }
 
 class ShowUserService {
