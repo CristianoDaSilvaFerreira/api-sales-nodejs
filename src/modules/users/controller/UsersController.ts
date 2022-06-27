@@ -5,7 +5,7 @@ import ListUserService from '../services/ListUserService';
 import ShowUserService from '../services/ShowUserService';
 import UpdateUserService from '../services/UpdateUserService';
 
-export default class UserConntroller {
+export default class UsersConntroller {
   public async indexUser(
     request: Request,
     response: Response,
