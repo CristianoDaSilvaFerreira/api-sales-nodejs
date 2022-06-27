@@ -528,3 +528,45 @@ mkdir -p src/modules/users/typeorm/repositories
 
 touch src/modules/users/typeorm/repositories/UserRepository.ts
 ```
+
+## Service User
+
+```bash
+mkdir -p src/modules/users/services
+
+touch src/modules/users/services/CreateUserService.ts
+
+touch src/modules/users/services/ListUserService.ts
+
+touch src/modules/users/services/ShowUserService.ts
+
+touch src/modules/users/services/UpdateUserService.ts
+
+touch src/modules/users/services/DeleteUserService.ts
+```
+
+## Controller User
+
+```bash
+mkdir -p src/modules/users/controller
+
+touch src/modules/users/controller/UserController.ts
+```
+
+## Routes
+
+```bash
+mkdir -p src/modules/users/routes
+
+touch src/modules/users/routes/users.routes.ts
+```
+
+# Criptografar password
+
+* Instalar a biblioteca `bcryptjs`
+
+```bash
+yarn add bcryptjs
+
+yarn add -D @types/bcryptjs
+```
