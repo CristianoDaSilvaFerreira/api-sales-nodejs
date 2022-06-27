@@ -548,9 +548,9 @@ touch src/modules/users/services/DeleteUserService.ts
 ## Controller User
 
 ```bash
-mkdir -p src/modules/users/controller
+mkdir -p src/modules/users/controllers
 
-touch src/modules/users/controller/UserController.ts
+touch src/modules/users/controllers/UsersController.ts
 ```
 
 ## Routes
@@ -569,4 +569,28 @@ touch src/modules/users/routes/users.routes.ts
 yarn add bcryptjs
 
 yarn add -D @types/bcryptjs
+```
+
+# Serviço de autenticação
+
+```bash
+mkdir -p src/modules/users/services/AuthSessions
+
+touch src/modules/users/services/CreateSessionsService.ts
+```
+
+## Controller de sessão de autenticação
+
+```bash
+mkdir -p src/modules/users/controllers/authSessionsController
+
+touch src/modules/users/controllers/SessionsController/SessionsController.ts
+```
+
+## Rota de sessão de autenticação
+
+```bash
+mkdir -p src/modules/users/routes/authSessionsRoutes
+
+touch src/modules/users/routes/authSessionsRoutes/sessions.router.ts
 ```
