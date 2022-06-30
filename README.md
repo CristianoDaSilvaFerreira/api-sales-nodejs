@@ -378,6 +378,12 @@ touch ormconfig.json
 }
 ```
 
+* Criar o contêiner no Docker
+
+```bash
+docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+```
+
 * Em `shared` criar uma pasta `typeorm`
 
 ```bash
@@ -594,3 +600,20 @@ mkdir -p src/modules/users/routes/authSessionsRoutes
 
 touch src/modules/users/routes/authSessionsRoutes/sessions.router.ts
 ```
+## Instalação da biblioteca JWT
+
+```bash
+yarn add jsonwebtoken
+
+yarn add -D @types/jsonwebtoken
+```
+
+## Middleware de autenticação para proteger as rotas
+
+```bash
+touch src/config/auth.ts
+
+mkdir -p src/modules/users/middlewares
+
+touch src/modules/users/middlewares/isAuthenticated.ts
+``` 
