@@ -627,3 +627,27 @@ mkdir src/@types/express
 
 touch src/@types/express/index.d.ts
 ```
+
+## Configuração do Multer
+
+```bash
+yarn add multer
+
+yarn add -D @types/multer
+``` 
+
+### Arquivo de configuração do Multer
+
+```bash
+# Arquivo de configuração 
+touch src/config/upload.ts
+
+# Criar na pasta raiz do projeto uma pasta uploads
+mkdir uploads
+
+# Serviço de envio de avatar
+touch src/modules/users/services/UpdateUserAvatarService.ts
+
+# Controler para envio de avatar
+touch src/modules/users/controllers/UserAvatarController.ts
+```
