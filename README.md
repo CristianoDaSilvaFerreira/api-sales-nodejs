@@ -617,3 +617,13 @@ mkdir -p src/modules/users/middlewares
 
 touch src/modules/users/middlewares/isAuthenticated.ts
 ``` 
+
+## Subscrita da objeto
+
+```bash
+mkdir src/@types
+
+mkdir src/@types/express
+
+touch src/@types/express/index.d.ts
+```

@@ -6,15 +6,23 @@ import ShowUserService from '../services/ShowUserService';
 import UpdateUserService from '../services/UpdateUserService';
 
 export default class UsersConntroller {
-  public async indexUser(request: Request, response: Response): Promise<Response> {
+  public async indexUser(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
     const listUser = new ListUserService();
+
+    console.log(request.user.id);
 
     const users = await listUser.execute();
 
     return response.json(users);
   }
 
-  public async showUser(request: Request, response: Response): Promise<Response> {
+  public async showUser(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
     const { id } = request.params;
 
     const showUser = new ShowUserService();
