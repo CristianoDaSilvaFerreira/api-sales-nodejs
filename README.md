@@ -675,4 +675,18 @@ touch src/modules/users/typeorm/repositories/UserTokensRepository.ts
 ## Service User Token
 
 ```bash
+# Service Token User
 touch src/modules/users/services/SendForgotPasswordEmailService.ts
+
+# Service Reset Password
+touch src/modules/users/services/ResetPasswordService.ts
+
+```
+
+# Instalação da biblioteca Date-fns
+
+Uma biblioteca **JavaScript** para trabalha com datas, pode-se consultar mais na documentação <a href="https://date-fns.org/" target="_blank">Date-fns</a>
+
+```bash
+yarn add date-fns
+``` 
