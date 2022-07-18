@@ -698,6 +698,8 @@ yarn add date-fns
 
 ```bash
 touch src/modules/users/controllers/ForgotPasswordController.ts
+
+touch src/modules/users/controllers/ResetPasswordController.ts
 ```
 
 ## Router Forgot Passwword
