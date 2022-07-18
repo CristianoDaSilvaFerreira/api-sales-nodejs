@@ -660,8 +660,14 @@ yarn typeorm migration:create -n CreateUsersTokens
 yarn typeorm migration:run
 ```
 
-## entidade Token
+## Entidade User Token
 
 ```bash
 touch src/modules/users/typeorm/entities/UserToken.ts
 ```
+
+## Repositório User Token
+
+```bash
+touch src/modules/users/typeorm/repositories/UserTokensRepository.ts
+``` 
