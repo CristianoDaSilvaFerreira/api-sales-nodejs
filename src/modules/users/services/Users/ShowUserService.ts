@@ -1,7 +1,7 @@
+import User from '@modules/users/typeorm/entities/User';
+import UsersRepository from '@modules/users/typeorm/repositories/UsersRepository';
 import AppError from '@shared/errors/AppErro';
 import { getCustomRepository } from 'typeorm';
-import User from '../typeorm/entities/User';
-import UsersRepositry from '../typeorm/repositories/UsersRepository';
 
 interface IUser {
   id: string;
@@ -9,7 +9,7 @@ interface IUser {
 
 class ShowUserService {
   public async execute({ id }: IUser): Promise<User> {
-    const usersRepository = getCustomRepository(UsersRepositry);
+    const usersRepository = getCustomRepository(UsersRepository);
 
     const user = await usersRepository.findOne({
       where: { id: id },

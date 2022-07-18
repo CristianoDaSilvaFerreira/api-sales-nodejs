@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import CreateUserService from '../services/CreateUserService';
-import DeleteUserService from '../services/DeleteUserService';
-import ListUserService from '../services/ListUserService';
-import ShowUserService from '../services/ShowUserService';
-import UpdateUserService from '../services/UpdateUserService';
+import CreateUserService from '../services/Users/CreateUserService';
+import DeleteUserService from '../services/Users/DeleteUserService';
+import ListUserService from '../services/Users/ListUserService';
+import ShowUserService from '../services/Users/ShowUserService';
+import UpdateUserService from '../services/Users/UpdateUserService';
 
 export default class UsersConntroller {
   public async indexUser(

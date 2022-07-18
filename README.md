@@ -540,6 +540,8 @@ touch src/modules/users/typeorm/repositories/UserRepository.ts
 ```bash
 mkdir -p src/modules/users/services
 
+mkdir -p src/modules/users/services/Users
+
 touch src/modules/users/services/CreateUserService.ts
 
 touch src/modules/users/services/ListUserService.ts
@@ -593,7 +595,7 @@ mkdir -p src/modules/users/controllers/authSessionsController
 touch src/modules/users/controllers/SessionsController/SessionsController.ts
 ```
 
-## Rota de sessão de autenticação
+## Router de sessão de autenticação
 
 ```bash
 mkdir -p src/modules/users/routes/authSessionsRoutes
@@ -675,6 +677,7 @@ touch src/modules/users/typeorm/repositories/UserTokensRepository.ts
 ## Service User Token
 
 ```bash
+mkdir src/modules/users/services/Password
 # Service Token User
 touch src/modules/users/services/SendForgotPasswordEmailService.ts
 
@@ -695,4 +698,10 @@ yarn add date-fns
 
 ```bash
 touch src/modules/users/controllers/ForgotPasswordController.ts
+```
+
+## Router Forgot Passwword
+
+```bash
+touch src/modules/users/routes/password.routes.ts
 ```
