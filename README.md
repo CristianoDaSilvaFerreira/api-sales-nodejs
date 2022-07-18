@@ -577,7 +577,7 @@ yarn add bcryptjs
 yarn add -D @types/bcryptjs
 ```
 
-# Serviço de autenticação
+# Service de autenticação
 
 ```bash
 mkdir -p src/modules/users/services/AuthSessions
@@ -660,14 +660,19 @@ yarn typeorm migration:create -n CreateUsersTokens
 yarn typeorm migration:run
 ```
 
-## Entidade User Token
+## Entity User Token
 
 ```bash
 touch src/modules/users/typeorm/entities/UserToken.ts
 ```
 
-## Repositório User Token
+## Repository User Token
 
 ```bash
 touch src/modules/users/typeorm/repositories/UserTokensRepository.ts
 ``` 
+
+## Service User Token
+
+```bash
+touch src/modules/users/services/SendForgotPasswordEmailService.ts
