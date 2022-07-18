@@ -690,3 +690,9 @@ Uma biblioteca **JavaScript** para trabalha com datas, pode-se consultar mais na
 ```bash
 yarn add date-fns
 ``` 
+
+## Controller Token User
+
+```bash
+touch src/modules/users/controllers/ForgotPasswordController.ts
+```
