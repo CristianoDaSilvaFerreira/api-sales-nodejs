@@ -651,11 +651,17 @@ touch src/modules/users/services/UpdateUserAvatarService.ts
 # Controler para envio de avatar
 touch src/modules/users/controllers/UserAvatarController.ts
 ```
-
+# Token para retefinir a senha
 ## Migragração da Tabela Token
 
 ```bash
 yarn typeorm migration:create -n CreateUsersTokens
 
 yarn typeorm migration:run
+```
+
+## entidade Token
+
+```bash
+touch src/modules/users/typeorm/entities/UserToken.ts
 ```
