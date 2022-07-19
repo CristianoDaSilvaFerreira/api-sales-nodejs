@@ -865,3 +865,5 @@ touch src/modules/orders/typeorm/repositories/OrderRepository.ts
 mkdir -p src/modules/orders/service
 
 touch src/modules/orders/service/CreateOrderService.ts
+
+touch src/modules/orders/service/ShowOrderService.ts
