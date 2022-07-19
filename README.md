@@ -731,3 +731,11 @@ mkdir src/modules/users/views
 
 touch src/modules/users/views/forgot_password.hbs
 ```
+
+# Gerenciamento de Perfil de Usuário
+
+```bash
+touch src/modules/users/services/Users/ShowPorfileService.ts
+
+touch src/modules/users/services/Users/UpdatePorfileService.ts
+```
