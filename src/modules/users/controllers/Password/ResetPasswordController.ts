@@ -1,5 +1,5 @@
+import ResetPasswordService from '@modules/users/services/Password/ResetPasswordService';
 import { Request, Response } from 'express';
-import ResetPasswordService from '../services/Password/ResetPasswordService';
 
 export default class ResetPasswordController {
   public async create(

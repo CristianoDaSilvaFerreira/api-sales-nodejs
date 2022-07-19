@@ -58,9 +58,9 @@ export default class UsersConntroller {
 
     const { name, username, email, password } = request.body;
 
-    const updateProduct = new UpdateUserService();
+    const updateUser = new UpdateUserService();
 
-    const product = await updateProduct.execute({
+    const user = await updateUser.execute({
       id,
       name,
       username,
@@ -68,7 +68,7 @@ export default class UsersConntroller {
       password,
     });
 
-    return response.json(product);
+    return response.json(user);
   }
 
   public async deleteUser(

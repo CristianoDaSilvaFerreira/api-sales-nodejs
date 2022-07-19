@@ -731,3 +731,23 @@ mkdir src/modules/users/views
 
 touch src/modules/users/views/forgot_password.hbs
 ```
+
+# Gerenciamento de Perfil de Usuário
+
+```bash
+# Service
+mkdir src/modules/users/services/Users/Profile
+
+touch src/modules/users/services/Users/ShowProfileService.ts
+
+touch src/modules/users/services/Users/UpdateProfileService.ts
+
+# Controller
+mkdir src/modules/users/controllers/Password
+
+mkdir src/modules/users/controllers/Profile
+
+touch src/modules/users/controllers/Profile/ProfileController.ts
+
+touch src/modules/users/routes/profile.routes.ts
+```
