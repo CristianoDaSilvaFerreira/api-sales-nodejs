@@ -825,3 +825,20 @@ yarn typeorm migration:create -n AddCustomerIdToOrders
 
 yarn typeorm migration:run
 ```
+
+## Migration Order Products
+
+```bash
+yarn typeorm migration:create -n CreateOrdersProducts
+
+yarn typeorm migration:run
+
+yarn typeorm migration:create -n AddOrderIdToOrdersProducts
+
+yarn typeorm migration:run
+
+yarn typeorm migration:create -n AddProductIdToOrdersProducts
+
+yarn typeorm migration:run
+``` 
+
