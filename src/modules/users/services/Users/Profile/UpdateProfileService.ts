@@ -13,7 +13,7 @@ interface IUser {
   old_password?: string;
 }
 
-export default class UpdatePorfileService {
+export default class UpdateProfileService {
   public async execute({
     user_id,
     name,

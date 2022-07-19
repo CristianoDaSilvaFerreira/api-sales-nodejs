@@ -7,7 +7,7 @@ interface IUser {
   user_id: string;
 }
 
-export default class ShowPorfileService {
+export default class ShowProfileService {
   public async execute({ user_id }: IUser): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository);
 

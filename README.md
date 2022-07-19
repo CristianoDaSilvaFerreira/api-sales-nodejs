@@ -735,7 +735,12 @@ touch src/modules/users/views/forgot_password.hbs
 # Gerenciamento de Perfil de Usuário
 
 ```bash
-touch src/modules/users/services/Users/ShowPorfileService.ts
+# Service
+mkdir src/modules/users/services/Users/Profile
 
-touch src/modules/users/services/Users/UpdatePorfileService.ts
+touch src/modules/users/services/Users/ShowProfileService.ts
+
+touch src/modules/users/services/Users/UpdateProfileService.ts
+
+# Controller
 ```
