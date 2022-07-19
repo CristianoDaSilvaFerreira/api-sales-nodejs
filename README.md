@@ -802,3 +802,12 @@ touch src/modules/customers/service/DeleteCustomerService.ts
 mkdir src/modules/customers/controller
 
 touch src/modules/customers/controller/CustomersController.ts
+```
+
+## Router Customers
+
+```bash
+mkdir src/modules/customers/routes
+
+touch src/modules/customers/routes/customer.routes.ts
+```
