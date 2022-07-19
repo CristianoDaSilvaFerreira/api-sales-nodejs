@@ -1,9 +1,9 @@
 import AppError from '@shared/errors/AppErro';
 import { getCustomRepository } from 'typeorm';
-import User from '../typeorm/entities/User';
+import User from '../../typeorm/entities/User';
 import path from 'path';
 import fs from 'fs';
-import UsersRepositry from '../typeorm/repositories/UsersRepository';
+import UsersRepositry from '../../typeorm/repositories/UsersRepository';
 import uploodConfig from '@config/upload';
 
 interface IUser {

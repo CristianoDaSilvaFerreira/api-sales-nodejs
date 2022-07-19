@@ -540,6 +540,8 @@ touch src/modules/users/typeorm/repositories/UserRepository.ts
 ```bash
 mkdir -p src/modules/users/services
 
+mkdir -p src/modules/users/services/Users
+
 touch src/modules/users/services/CreateUserService.ts
 
 touch src/modules/users/services/ListUserService.ts
@@ -577,7 +579,7 @@ yarn add bcryptjs
 yarn add -D @types/bcryptjs
 ```
 
-# Serviço de autenticação
+# Service de autenticação
 
 ```bash
 mkdir -p src/modules/users/services/AuthSessions
@@ -593,7 +595,7 @@ mkdir -p src/modules/users/controllers/authSessionsController
 touch src/modules/users/controllers/SessionsController/SessionsController.ts
 ```
 
-## Rota de sessão de autenticação
+## Router de sessão de autenticação
 
 ```bash
 mkdir -p src/modules/users/routes/authSessionsRoutes
@@ -660,14 +662,72 @@ yarn typeorm migration:create -n CreateUsersTokens
 yarn typeorm migration:run
 ```
 
-## Entidade User Token
+## Entity User Token
 
 ```bash
 touch src/modules/users/typeorm/entities/UserToken.ts
 ```
 
-## Repositório User Token
+## Repository User Token
 
 ```bash
 touch src/modules/users/typeorm/repositories/UserTokensRepository.ts
 ``` 
+
+## Service User Token
+
+```bash
+mkdir src/modules/users/services/Password
+# Service Token User
+touch src/modules/users/services/SendForgotPasswordEmailService.ts
+
+# Service Reset Password
+touch src/modules/users/services/ResetPasswordService.ts
+
+```
+
+# Instalação da biblioteca Date-fns
+
+Uma biblioteca **JavaScript** para trabalha com datas, pode-se consultar mais na documentação <a href="https://date-fns.org/" target="_blank">Date-fns</a>
+
+```bash
+yarn add date-fns
+``` 
+
+## Controller Token User
+
+```bash
+touch src/modules/users/controllers/ForgotPasswordController.ts
+
+touch src/modules/users/controllers/ResetPasswordController.ts
+```
+
+## Router Forgot Passwword
+
+```bash
+touch src/modules/users/routes/password.routes.ts
+```
+
+### Instalação do Nodemailer
+
+```bash
+yarn add nodemailer
+
+yarn add -D @types/nodemailer
+
+mkdir src/config/mail
+
+touch src/config/mail/EtherealMail.ts
+```
+
+### Template Handlebars para envio de email
+
+```bash
+yarn add handlebars
+
+touch src/config/mail/HandlebarsMailTemplate.ts
+
+mkdir src/modules/users/views
+
+touch src/modules/users/views/forgot_password.hbs
+```
