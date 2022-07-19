@@ -857,3 +857,11 @@ touch src/modules/orders/typeorm/entities/OrdersProducts.ts
 mkdir -p src/modules/orders/typeorm/repositories
 
 touch src/modules/orders/typeorm/repositories/OrderRepository.ts
+```
+
+## Services
+
+```bash
+mkdir -p src/modules/orders/service
+
+touch src/modules/orders/service/CreateOrderService.ts
