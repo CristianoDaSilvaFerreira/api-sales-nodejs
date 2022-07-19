@@ -771,5 +771,11 @@ mkdir src/modules/customers/typeorm
 mkdir src/modules/customers/typeorm/entities
 
 touch src/modules/customers/typeorm/entities/Customer.ts
-
 ```
+
+## Repository Customers
+
+```bash
+mkdir src/modules/customers/typeorm/repositories
+
+touch src/modules/customers/typeorm/repositories/CustomersRespository.ts
