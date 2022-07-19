@@ -707,3 +707,23 @@ touch src/modules/users/controllers/ResetPasswordController.ts
 ```bash
 touch src/modules/users/routes/password.routes.ts
 ```
+
+### Instalação do Nodemailer
+
+```bash
+yarn add nodemailer
+
+yarn add -D @types/nodemailer
+
+mkdir src/config/mail
+
+touch src/config/mail/EtherealMail.ts
+```
+
+### Template Handlebars para envio de email
+
+```bash
+yarn add handlebars
+
+touch src/config/mail/HandlebarsMailTemplate.ts
+```
