@@ -841,4 +841,9 @@ yarn typeorm migration:create -n AddProductIdToOrdersProducts
 
 yarn typeorm migration:run
 ``` 
+## Entity
 
+```bash
+mkdir -p src/modules/orders/typeorm/entities
+
+touch src/modules/orders/typeorm/entities/Order.ts
