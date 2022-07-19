@@ -796,3 +796,9 @@ touch src/modules/customers/service/UpdatedCustomerService.ts
 touch src/modules/customers/service/DeleteCustomerService.ts
 ```
 
+## Controller Customers
+
+```bash
+mkdir src/modules/customers/controller
+
+touch src/modules/customers/controller/CustomersController.ts

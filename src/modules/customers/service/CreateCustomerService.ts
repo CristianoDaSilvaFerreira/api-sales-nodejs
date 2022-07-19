@@ -9,7 +9,7 @@ interface ICustomer {
   phone: string;
 }
 
-export default class CreatecustomerService {
+export default class CreateCustomerService {
   public async execute({ name, email, phone }: ICustomer): Promise<Customer> {
     const customersRespository = getCustomRepository(CustomersRepository);
 
