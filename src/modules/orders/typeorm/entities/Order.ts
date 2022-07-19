@@ -4,9 +4,11 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import OrdersProducts from './OrdersProducts';
 
 @Entity('orders')
 export default class Order {
@@ -14,8 +16,15 @@ export default class Order {
   id: string;
 
   @ManyToOne(() => Customer)
-  @JoinColumn({ name: 'customer_id'})
+  @JoinColumn({ name: 'customer_id' })
   customer: Customer;
+
+  @OneToMany(
+    () => OrdersProducts,
+    (ordersProducts: OrdersProducts) => ordersProducts.order,
+    { cascade: true },
+  )
+  order_products: OrdersProducts[];
 
   @CreateDateColumn()
   created_at: Date;

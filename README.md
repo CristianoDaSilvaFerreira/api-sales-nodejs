@@ -847,3 +847,5 @@ yarn typeorm migration:run
 mkdir -p src/modules/orders/typeorm/entities
 
 touch src/modules/orders/typeorm/entities/Order.ts
+
+touch src/modules/orders/typeorm/entities/OrdersProducts.ts
