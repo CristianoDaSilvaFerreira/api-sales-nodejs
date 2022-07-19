@@ -726,4 +726,8 @@ touch src/config/mail/EtherealMail.ts
 yarn add handlebars
 
 touch src/config/mail/HandlebarsMailTemplate.ts
+
+mkdir src/modules/users/views
+
+touch src/modules/users/views/forgot_password.hbs
 ```
