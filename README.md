@@ -849,3 +849,11 @@ mkdir -p src/modules/orders/typeorm/entities
 touch src/modules/orders/typeorm/entities/Order.ts
 
 touch src/modules/orders/typeorm/entities/OrdersProducts.ts
+```
+
+## Repository
+
+```bash
+mkdir -p src/modules/orders/typeorm/repositories
+
+touch src/modules/orders/typeorm/repositories/OrderRepository.ts
