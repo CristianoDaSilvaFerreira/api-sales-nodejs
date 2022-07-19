@@ -748,4 +748,6 @@ mkdir src/modules/users/controllers/Password
 mkdir src/modules/users/controllers/Profile
 
 touch src/modules/users/controllers/Profile/ProfileController.ts
+
+touch src/modules/users/routes/profile.routes.ts
 ```

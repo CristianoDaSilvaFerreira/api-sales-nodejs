@@ -3,7 +3,7 @@ import UpdateProfileService from '@modules/users/services/Users/Profile/UpdatePr
 import { Request, Response } from 'express';
 
 export default class ProfileConntroller {
-  public async showProfile(
+  public async show(
     request: Request,
     response: Response,
   ): Promise<Response> {
@@ -16,7 +16,7 @@ export default class ProfileConntroller {
     return response.json(users);
   }
 
-  public async updateProfile(
+  public async update(
     request: Request,
     response: Response,
   ): Promise<Response> {
