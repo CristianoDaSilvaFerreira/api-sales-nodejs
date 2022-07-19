@@ -779,3 +779,20 @@ touch src/modules/customers/typeorm/entities/Customer.ts
 mkdir src/modules/customers/typeorm/repositories
 
 touch src/modules/customers/typeorm/repositories/CustomersRespository.ts
+```
+## Service Customers
+
+```bash
+mkdir src/modules/customers/service
+
+touch src/modules/customers/service/ListCustomerService.ts
+
+touch src/modules/customers/service/CreateCustomerService.ts
+
+touch src/modules/customers/service/ShowCustomerService.ts
+
+touch src/modules/customers/service/UpdatedCustomerService.ts
+
+touch src/modules/customers/service/DeleteCustomerService.ts
+```
+
