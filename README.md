@@ -751,3 +751,25 @@ touch src/modules/users/controllers/Profile/ProfileController.ts
 
 touch src/modules/users/routes/profile.routes.ts
 ```
+
+# Modulo Client 
+
+## Customers Migrations
+
+```bash
+yarn typeorm migration:create -n CreateCustomers
+
+yarn typeorm migration:run
+```
+## Entity Customers
+
+```bash
+mkdir src/modules/customers
+
+mkdir src/modules/customers/typeorm
+
+mkdir src/modules/customers/typeorm/entities
+
+touch src/modules/customers/typeorm/entities/Customer.ts
+
+```
