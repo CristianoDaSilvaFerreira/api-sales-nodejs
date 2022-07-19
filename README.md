@@ -752,7 +752,7 @@ touch src/modules/users/controllers/Profile/ProfileController.ts
 touch src/modules/users/routes/profile.routes.ts
 ```
 
-# Modulo Client 
+# Modulo Customers 
 
 ## Customers Migrations
 
@@ -810,4 +810,18 @@ touch src/modules/customers/controller/CustomersController.ts
 mkdir src/modules/customers/routes
 
 touch src/modules/customers/routes/customer.routes.ts
+```
+
+# Modulo Order
+
+## Migration Order
+
+```bash
+yarn typeorm migration:create -n CreateOrders
+
+yarn typeorm migration:run
+
+yarn typeorm migration:create -n AddCustomerIdToOrders
+
+yarn typeorm migration:run
 ```
