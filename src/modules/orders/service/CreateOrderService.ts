@@ -25,7 +25,7 @@ export default class CreateOrderService {
 
     const customerExists = await customersRepository.findById(customer_id);
 
-     // Verificando se o cliente existe
+    // Verificando se o cliente existe
     if (!customerExists) {
       throw new AppError('Could not find any customer with the given id.');
     }
@@ -86,7 +86,7 @@ export default class CreateOrderService {
     const updatedProductQuantity = order_products.map(product => ({
       id: product.product_id,
       quantity:
-        existsProducts.filter(p => p.id === product.id)[0].quantity -
+        existsProducts.filter(p => p.id === product.product_id)[0].quantity -
         product.quantity,
     }));
 
